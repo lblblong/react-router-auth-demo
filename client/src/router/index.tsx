@@ -1,46 +1,51 @@
-import { Router } from "oh-router"
-import { BasicLayout } from "../layouts/basic"
-import { BookManage } from "../pages/book-manage"
-import { Login } from "../pages/login"
-import { UserManage } from "../pages/user-manage"
-import { LoginCheckMiddleware } from "./middlewares/loginCheck"
-import { RoleCheckMiddleware } from "./middlewares/roleCheck"
+import { Router } from 'oh-router'
+import { BasicLayout } from '../layouts/basic'
+import { BookManage } from '../pages/book-manage'
+import { Login } from '../pages/login'
+import { UserManage } from '../pages/user-manage'
+import { FetchUserMiddleware } from './middlewares/fetchUser'
+import { LoginCheckMiddleware } from './middlewares/loginCheck'
+import { RoleCheckMiddleware } from './middlewares/roleCheck'
 
 export interface Meta {
-  role: ("admin" | "superAdmin")[]
+  role: ('admin' | 'superAdmin')[]
 }
 
 export const router = new Router<Meta>({
-  middlewares: [new LoginCheckMiddleware(), new RoleCheckMiddleware()],
+  middlewares: [
+    new LoginCheckMiddleware(),
+    new FetchUserMiddleware(),
+    new RoleCheckMiddleware(),
+  ],
   routes: [
     {
-      path: "/login",
+      path: '/login',
       element: <Login />,
     },
     {
-      path: "/",
+      path: '/',
       element: <BasicLayout />,
       children: [
         {
           index: true,
-          element: "首页",
+          element: '首页',
         },
         {
-          path: "/user-manage",
+          path: '/user-manage',
           element: <UserManage />,
           meta: {
-            role: ["superAdmin"],
+            role: ['superAdmin'],
           },
         },
         {
-          path: "/book-manage",
+          path: '/book-manage',
           element: <BookManage />,
         },
       ],
     },
     {
-      path: "*",
-      element: "404",
+      path: '*',
+      element: '404',
     },
   ],
 })

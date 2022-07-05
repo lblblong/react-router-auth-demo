@@ -7,8 +7,6 @@ export class RoleCheckMiddleware extends Middleware<Meta> {
     ctx: MiddlewareContext<Meta>,
     next: () => Promise<any>
   ): Promise<void> {
-    if (!userStore.user) await userStore.fetchUser()
-
     if (ctx.to.meta.role.includes(userStore.user.role)) {
       next()
     } else {

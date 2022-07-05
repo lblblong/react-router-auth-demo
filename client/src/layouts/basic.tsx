@@ -1,8 +1,8 @@
-import { ProLayout } from "@ant-design/pro-layout"
-import { Button } from "antd"
-import { Link, Outlet, useLocation } from "oh-router-react"
-import { router } from "../router"
-import { userStore } from "../stores/user"
+import { ProLayout } from '@ant-design/pro-layout'
+import { Button, Space } from 'antd'
+import { Link, Outlet, useLocation } from 'oh-router-react'
+import { router } from '../router'
+import { userStore } from '../stores/user'
 
 export function BasicLayout() {
   const location = useLocation()
@@ -11,37 +11,40 @@ export function BasicLayout() {
     <ProLayout
       location={location}
       style={{
-        height: "100vh",
+        height: '100vh',
       }}
       rightContentRender={() => {
         return (
-          <Button
-            onClick={() => {
-              userStore.logout()
-              router.navigate("/login")
-            }}
-          >
-            登出
-          </Button>
+          <Space>
+            <span>{userStore.user.username}</span>
+            <Button
+              onClick={() => {
+                userStore.logout()
+                router.navigate('/login')
+              }}
+            >
+              登出
+            </Button>
+          </Space>
         )
       }}
       menuItemRender={(it: any) => {
         return <Link to={it.path}>{it.name}</Link>
       }}
       route={{
-        path: "/",
+        path: '/',
         routes: [
           {
-            path: "/",
-            name: "首页",
+            path: '/',
+            name: '首页',
           },
           {
-            path: "/user-manage",
-            name: "用户管理",
+            path: '/user-manage',
+            name: '用户管理',
           },
           {
-            path: "/book-manage",
-            name: "图书管理",
+            path: '/book-manage',
+            name: '图书管理',
           },
         ],
       }}
