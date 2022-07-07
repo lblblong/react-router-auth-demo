@@ -11,6 +11,7 @@ export class MustLoginMiddleware implements IMiddleware<Context, NextFunction> {
         const token = ctx.req.headers.authorization;
         ctx.setAttr('user', jwt.verify(token, ctx.app.getConfig('keys')));
       } catch (err) {
+        ctx.status = 401
         throw new MidwayHttpError('请登录', 401);
       }
       return next();
