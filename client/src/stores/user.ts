@@ -1,4 +1,5 @@
 import { getUserInfo, login } from "../apis/user"
+import { resetPermissionRoutes } from "../router"
 import { removeToken, setToken } from "../shared/token"
 
 export const userStore = new (class {
@@ -11,11 +12,13 @@ export const userStore = new (class {
 
   async fetchUser() {
     this.user = await getUserInfo()
+    resetPermissionRoutes(this.user)
   }
 
   logout() {
     removeToken()
     this.user = undefined
+    resetPermissionRoutes()
   }
 })()
 

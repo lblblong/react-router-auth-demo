@@ -1,4 +1,5 @@
 import { Middleware, MiddlewareContext } from 'oh-router'
+import { router } from '..'
 import { getToken } from '../../shared/token'
 import { userStore } from '../../stores/user'
 
@@ -10,7 +11,10 @@ export class FetchUserMiddleware extends Middleware {
     const token = getToken()
     if (token && !userStore.user) {
       await userStore.fetchUser()
+      router.rematch()
+    } else {
+      next()
     }
-    next()
   }
 }
+

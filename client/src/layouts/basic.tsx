@@ -1,11 +1,21 @@
 import { ProLayout } from '@ant-design/pro-layout'
 import { Button, Space } from 'antd'
 import { Link, Outlet, useLocation } from 'oh-router-react'
+import { useMemo } from 'react'
 import { router } from '../router'
 import { userStore } from '../stores/user'
 
 export function BasicLayout() {
   const location = useLocation()
+
+  const menus = useMemo(() => {
+    return router
+      .getRoutes()
+      .find((route) => route.name === 'base')!
+      .children?.map((route) => {
+        return route.meta?.menu
+      })
+  }, [])
 
   return (
     <ProLayout
@@ -33,20 +43,7 @@ export function BasicLayout() {
       }}
       route={{
         path: '/',
-        routes: [
-          {
-            path: '/',
-            name: '首页',
-          },
-          {
-            path: '/user-manage',
-            name: '用户管理',
-          },
-          {
-            path: '/book-manage',
-            name: '图书管理',
-          },
-        ],
+        routes: menus,
       }}
     >
       <Outlet />
