@@ -8,8 +8,8 @@ specifiers:
   antd: ^4.21.0
   axios: ^0.27.2
   less: ^4.1.3
-  oh-router: ^0.1.1
-  oh-router-react: ^0.0.5
+  oh-router: ^0.2.3
+  oh-router-react: ^0.0.7
   react: ^18.0.0
   react-dom: ^18.0.0
   sass: ^1.52.3
@@ -20,8 +20,8 @@ dependencies:
   '@ant-design/pro-layout': 6.38.8_xaribo4j3p4npckcloxr6jx4xe
   antd: 4.21.0_ef5jwxihqo6n7gxfmzogljlgcm
   axios: 0.27.2
-  oh-router: 0.1.1
-  oh-router-react: 0.0.5_ef5jwxihqo6n7gxfmzogljlgcm
+  oh-router: 0.2.3
+  oh-router-react: 0.0.7_ef5jwxihqo6n7gxfmzogljlgcm
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
 
@@ -1271,28 +1271,28 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /oh-router-react/0.0.5_ef5jwxihqo6n7gxfmzogljlgcm:
-    resolution: {integrity: sha512-EyaeJzoELuBnrCo9+ZE12Ys3jti96KRR/hBQoLTazg5Rrf8jlW+JajEhobRhEM8BIpTzIgUCjBuL2N8qJF2qhQ==}
+  /oh-router-react/0.0.7_ef5jwxihqo6n7gxfmzogljlgcm:
+    resolution: {integrity: sha512-ZGTqfEIE2k5+j6vbwjBu47OGBy2N0G0PWsqzyVikABsuhnDW+g+A9Jh3K+CUOxkuc/PvEiCbK0hb0yXiajEm6g==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
     dependencies:
       history: 5.3.0
-      oh-router: 0.1.1
-      oh-router-shared: 0.0.4
+      oh-router: 0.2.3
+      oh-router-shared: 0.1.0
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
     dev: false
 
-  /oh-router-shared/0.0.4:
-    resolution: {integrity: sha512-hIJ2JYhupdgqgPgVzAtT94TAuCuaHRB1R0AdnGuWmlrUytms8jXr6DXQJ1P9/e+vH4yQAIp+7aBj1gkEZieEMg==}
+  /oh-router-shared/0.1.0:
+    resolution: {integrity: sha512-9egqM7FUmadm3X/PvVpjgiSqMUryRqPnzI/IDP9wFHsV97k9YLrQ2PBAv7u3hGPd4aoSPIGEKUcFzCiOAGXMYw==}
     dev: false
 
-  /oh-router/0.1.1:
-    resolution: {integrity: sha512-boLFVDd3zSnd8YLOPDaNAX6toTTp4ehSuiOFUGDcgfU+CQlLIIhxZH4vLKptjQveJH5+B0DqYH9+ZM0YaruRjg==}
+  /oh-router/0.2.3:
+    resolution: {integrity: sha512-1jVqd05S30GlhMv5ZWWWi7PVuEV5cYsh4DV5JOdsolVeekuX/bqXObVbIjmCxgw62LxUIl1u6rYR7q210N+j5g==}
     dependencies:
       history: 5.3.0
-      oh-router-shared: 0.0.4
+      oh-router-shared: 0.1.0
     dev: false
 
   /omit.js/2.0.2:

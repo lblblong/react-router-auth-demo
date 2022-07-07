@@ -5,7 +5,6 @@ import { Login } from '../pages/login'
 import { UserManage } from '../pages/user-manage'
 import { FetchUserMiddleware } from './middlewares/fetchUser'
 import { LoginCheckMiddleware } from './middlewares/loginCheck'
-import { RoleCheckMiddleware } from './middlewares/roleCheck'
 
 export interface Meta {
   role?: ('admin' | 'superAdmin')[]
@@ -19,7 +18,7 @@ export const router = new Router<Meta>({
   middlewares: [
     new LoginCheckMiddleware(),
     new FetchUserMiddleware(),
-    new RoleCheckMiddleware(),
+    // new RoleCheckMiddleware(),
   ],
   routes: [
     {
